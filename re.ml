@@ -1,6 +1,3 @@
-#require "Str";;
-#require "yojson";;
-
 type crumb =
   | Nothing
   | Content of string
