@@ -49,3 +49,18 @@ let get_comment_mark json ~lang =
   | _ -> []
 
 (* need filename and filetype separeter *)
+let rec get_all_file dir =
+  let root_files = Array.to_list (Sys.readdir dir) in
+  let re = ref [] in
+  let rec walk_dir root_fs =
+    match root_fs with
+    | x :: xs when Sys.is_directory (dir ^ "/" ^ x) ->
+        re := List.append !re (get_all_file (dir ^ "/" ^ x)) ;
+        walk_dir xs
+    | x :: xs when Filename.extension x != "" ->
+        re := List.append !re [dir ^ "/" ^ x] ;
+        walk_dir xs
+    | _ :: xs -> walk_dir xs
+    | _ -> ()
+  in
+  walk_dir root_files ; !re
