@@ -1,3 +1,11 @@
 #use "topfind";;
+
+(* looks like use file directly just load signature *)
+(* means autocomplete is fine, but cannot use module directly on toplevel *)
+(*#use "args.ml";;*)
+
+(* load cmo file is totally fine*)
+#load "args.cmo";;
+
 #require "Str";;
 #require "yojson";;

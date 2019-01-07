@@ -5,3 +5,6 @@ GTAGS
 .merlin
 _build/
 dune-project
+*.o
+*.cmo
+*.cmi
