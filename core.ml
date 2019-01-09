@@ -1,3 +1,4 @@
+(* crumb type *)
 type crumb =
   | Nothing
   | Content of string
@@ -13,6 +14,7 @@ let rec pick_comment_out (sym : string list) ~(line : string) : crumb =
       else pick_comment_out xs ~line
   | [] -> Nothing
 
+(* check if keyword exsit *)
 let keyword_filter keyword ~content:(x : crumb) : crumb =
   match x with
   | Content c ->
@@ -22,6 +24,7 @@ let keyword_filter keyword ~content:(x : crumb) : crumb =
       else Nothing
   | _ -> x
 
+(* line number with crumb *)
 type linenum_crumb = {linenum: int; cmb: crumb}
 
 let pickout_from_file filepath ?keyword commentmark : linenum_crumb list =
@@ -48,6 +51,7 @@ let pickout_from_file filepath ?keyword commentmark : linenum_crumb list =
     !result
   with End_of_file -> close_in ic ; List.rev !result
 
+(* read json file *)
 let read_comment_mark_map filepath = Yojson.Basic.from_file filepath
 
 (* give default comments mark table *)
