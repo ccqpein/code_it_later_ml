@@ -4,6 +4,9 @@ Same stuff as [code-it-later](https://github.com/ccqpein/code-it-later). The rea
 1. clojure version startup a bit slow.
 2. try to practice ocaml
 
+How to build:
+`dune build`
+
 ## Summary
 Make flags in source code where may have problems or can be optimized. codeitlater help you track this flags and fix them in future.
 
