@@ -1,4 +1,5 @@
 # code_it_later_ml
+
 Same stuff as [code-it-later](https://github.com/ccqpein/code-it-later). The reasons I re-write this tool are:
 
 1. clojure version startup a bit slow.
@@ -6,6 +7,8 @@ Same stuff as [code-it-later](https://github.com/ccqpein/code-it-later). The rea
 
 How to build:
 `dune build`
+
+**README copy from clojure version, but not implement all features. Also I focus on [haskell version](https://github.com/ccqpein/code_it_later_hs), this repo may not update future**
 
 ## Summary
 Make flags in source code where may have problems or can be optimized. codeitlater help you track this flags and fix them in future.
@@ -56,9 +59,6 @@ You will get:
   |-- Line 4: "this line can be read again"
 ```
 
-#### Give specify file type ####
-
-*still developing*
 
 #### Specific path ####
 
@@ -77,9 +77,5 @@ You will get:
 |-- /user/src/main.go
   |-- (4 "MARK: you can left keyword to marked comment line")
 ```
-
-Same format as filetypes, if you want get two keywords together:
-
-**still developing**
 
 `ln -sfv $(PWD)/_build/default/core.exe /usr/local/bin/codeitlater`
